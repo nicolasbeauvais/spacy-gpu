@@ -4,6 +4,7 @@
 # python        3.6    (apt)
 # chainer       latest (pip)
 # spacy         latest (pip)
+# jupyter       latest (pip)
 # ==================================================================
 
 FROM nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04
@@ -78,6 +79,14 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
         && \
 
     python -m spacy download en_core_web_md && \
+
+# ==================================================================
+# jupyter
+# ------------------------------------------------------------------
+
+    $PIP_INSTALL \
+        jupyter \
+        && \
 
 # ==================================================================
 # config & cleanup
